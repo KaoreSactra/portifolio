@@ -18,16 +18,15 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode
-  params: Promise<{ locale: string }>
+  params: { locale: string }
 }) {
   // Ensure that the incoming `locale` is valid
-  const { locale } = await params
-  if (!routing.locales.includes(locale as any)) {
+  const { locale } = params
+  if (!routing.locales.includes(locale as "en" | "pt-br")) {
     notFound()
   }
 
   // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages()
 
   return (
@@ -38,7 +37,7 @@ export default async function LocaleLayout({
           dark:from-zinc-800 dark:to-zinc-950 dark:text-zinc-200
           transition-all duration-300"
       >
-        <PopButton/>
+        <PopButton />
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

@@ -1,11 +1,11 @@
 "use client"
 import { usePathname, useRouter } from "@/i18n/navigation"
-import { useLocale } from "next-intl"
+import { useParams } from "next/navigation"
 import { HiTranslate } from "react-icons/hi"
 
 export default function ToggleLang() {
   const pathname = usePathname()
-  const locale = useLocale()
+  const locale = useParams().locale
   const router = useRouter()
 
   const handleClick = () => {

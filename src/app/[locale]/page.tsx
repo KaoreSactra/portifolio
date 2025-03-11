@@ -14,19 +14,19 @@ export default function Home() {
         </h2>
         <ul className="flex flex-col font-tittle font-light text-xl mt-5 select-none">
           <li className="hover:text-2xl transition-all duration-300 cursor-pointer flex space-x-1">
-            <p className="text-red-800">♥</p>
+            <span className="w-5 text-center text-red-800">♥</span>
             <p>{t("Tecno")}</p>
           </li>
           <li className="hover:text-2xl transition-all duration-300 cursor-pointer flex space-x-1">
-            <p>♣</p>
+            <span className="w-5 text-center">♣</span>
             <p>{t("Exp")}</p>
           </li>
           <li className="hover:text-2xl transition-all duration-300 cursor-pointer flex space-x-1">
-            <p className="text-red-800">♦</p>
+            <span className="w-5 text-center text-red-800">♦</span>
             <p>{t("Proj")}</p>
           </li>
           <li className="hover:text-2xl transition-all duration-300 cursor-pointer flex space-x-1">
-            <p>♠</p>
+            <span className="w-5 text-center">♠</span>
             <p>{t("Cont")}</p>
           </li>
         </ul>

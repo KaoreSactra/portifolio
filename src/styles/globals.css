@@ -2,14 +2,6 @@
 @import "./fonts.css";
 
 @theme {
-  --color-bgLight: #f8f9fa;
-  --color-textLight: #212529;
-  --color-buttonsLight: #eaeaea;
-  --color-bgDark: #121212;
-  --color-textDark: #eaeaea;
-  --color-buttonsDark: #1e1e1e;
-  --color-highlights: #8a2be2;
-
   --font-display: "Inter", "sans-serif";
   --font-tittle: "Montserrat", "sans-serif";
 }

@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState } from "react"
-import { FiSun, FiMoon } from "react-icons/fi"
+import { HiSun } from "react-icons/hi"
+import { HiMoon } from "react-icons/hi2"
 
 export default function ToggleMode() {
   const [isDarkMode, setIsDarkMode] = useState(false)
@@ -36,8 +37,8 @@ export default function ToggleMode() {
   return (
     <button
       onClick={toggleMode}
-      className="fixed bottom-4 right-4 rounded-full p-2 bg-buttonsLight dark:bg-buttonsDark border-2 border-textLight dark:border-textDark">
-      {isDarkMode ? <FiMoon className="size-6"/> : <FiSun className="size-6"/>}
+      className="p-2">
+      {isDarkMode ? <HiMoon className="size-6"/> : <HiSun className="size-6"/>}
     </button>
   )
 }

@@ -18,11 +18,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br" data-theme="dark">
       <body
-        className="font-display
+        className="font-display text-xl
           bg-bgLight text-textLight
           dark:bg-bgDark dark:text-textDark
-          transition-all duration-300"
-      >
+          transition-all duration-300">
         <ToggleMode/>
         {children}
       </body>

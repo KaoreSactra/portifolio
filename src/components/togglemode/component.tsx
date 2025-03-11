@@ -8,11 +8,11 @@ export default function ToggleMode() {
   // Verifica o tema ao carregar a página
   useEffect(() => {
     const theme = localStorage.theme
-    const systemPrefersDark = window.matchMedia(
+    const systemPrefers = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches
 
-    if (theme === "dark" || (!theme && systemPrefersDark)) {
+    if (theme === "dark" || (!theme && systemPrefers)) {
       document.documentElement.setAttribute("data-theme", "dark")
       setIsDarkMode(true)
     } else {
@@ -36,7 +36,7 @@ export default function ToggleMode() {
   return (
     <button
       onClick={toggleMode}
-      className="fixed top-4 right-4 rounded-full p-2 bg-buttonsLight dark:bg-buttonsDark border-2 border-textLight dark:border-textDark">
+      className="fixed bottom-4 right-4 rounded-full p-2 bg-buttonsLight dark:bg-buttonsDark border-2 border-textLight dark:border-textDark">
       {isDarkMode ? <FiMoon className="size-6"/> : <FiSun className="size-6"/>}
     </button>
   )

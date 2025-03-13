@@ -22,11 +22,6 @@ export default function Home() {
           <Li dot="♠" label={t("Cont")}/>
         </ul>
       </header>
-      <section className="w-full h-full
-              flex flex-col items-end
-              snap-y overflow-scroll
-              text-3xl md:text-6xl">
-      </section>
     </main>
   )
 }

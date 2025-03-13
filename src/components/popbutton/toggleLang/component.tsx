@@ -17,8 +17,8 @@ export default function ToggleLang() {
   }
 
   return (
-    <button onClick={handleClick} className="p-2">
-      <HiTranslate className="size-6" />
+    <button onClick={handleClick} className="p-2 cursor-pointer">
+      <HiTranslate className="size-6 drop-shadow-lg"/>
     </button>
   )
 }

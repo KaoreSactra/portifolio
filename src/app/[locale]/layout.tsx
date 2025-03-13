@@ -7,6 +7,7 @@ import { getMessages } from "next-intl/server"
 import { notFound } from "next/navigation"
 
 import PopButton from "@/components/popbutton/component"
+import Bg from "@/components/bg/component"
 
 export const metadata: Metadata = {
   title: "Dev Full-Stack | Gustavo Aragão",
@@ -31,12 +32,13 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} data-theme="dark">
       <body
-        className="font-display text-xl bg-linear-to-t
-        from-zinc-100 to-zinc-300 text-zinc-900
-          dark:from-zinc-800 dark:to-zinc-950 dark:text-zinc-200
-          transition-all duration-300"
+        className="font-display text-xl
+          bg-zinc-50 dark:bg-zinc-950
+        text-zinc-900  dark:text-zinc-200
+          transition-all duration-300 text-nowrap select-none overflow-hidden"
       >
-        <PopButton />
+        <Bg/>
+        <PopButton/>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

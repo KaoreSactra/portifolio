@@ -2,8 +2,7 @@
 @import "./fonts.css";
 
 @theme {
-  --font-display: "Inter", "sans-serif";
-  --font-tittle: "Montserrat", "sans-serif";
+  --font-display: "Montserrat", "sans-serif";
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));

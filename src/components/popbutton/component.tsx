@@ -20,7 +20,7 @@ export default function PopButton() {
                   from-red-500 to-red-900 to-75%
                   transition-all duration-300 text-zinc-200
                   drop-shadow-md`}>
-      <div className={isExpanded ? "hidden" : ""}>
+      <div className={`${isExpanded ? "invisible opacity-0" : "visible opacity-100"} transition-opacity duration-400`}>
         <ToggleLang/>
         <ToggleMode/>
       </div>

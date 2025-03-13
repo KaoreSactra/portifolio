@@ -6,7 +6,6 @@ import { HiMoon } from "react-icons/hi2"
 export default function ToggleMode() {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
-  // Verifica o tema ao carregar a página
   useEffect(() => {
     const theme = localStorage.theme
     const systemPrefers = window.matchMedia(
@@ -22,7 +21,6 @@ export default function ToggleMode() {
     }
   }, [])
 
-  // Troca tema
   const toggleMode = () => {
     if (isDarkMode) {
       localStorage.theme = "light"
@@ -37,8 +35,8 @@ export default function ToggleMode() {
   return (
     <button
       onClick={toggleMode}
-      className="p-2">
-      {isDarkMode ? <HiMoon className="size-6"/> : <HiSun className="size-6"/>}
+      className="p-2 cursor-pointer">
+      {isDarkMode ? <HiMoon className="size-6 drop-shadow-lg"/> : <HiSun className="size-6 drop-shadow-lg"/>}
     </button>
   )
 }

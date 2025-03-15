@@ -18,15 +18,12 @@ export default function Bg({ className }: LiProps) {
       await loadSlim(engine)
     }).then(() => setInit(true))
 
-    // Função para atualizar o estado baseado no atributo data-theme
     const updateTheme = () => {
       setIsDark(document.documentElement.getAttribute("data-theme") === "dark")
     }
 
-    // Detecta o tema inicial
     updateTheme()
 
-    // Observa mudanças no atributo data-theme
     const observer = new MutationObserver(updateTheme)
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] })
 

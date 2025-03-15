@@ -6,8 +6,7 @@ import { NextIntlClientProvider } from "next-intl"
 import { getMessages } from "next-intl/server"
 import { notFound } from "next/navigation"
 
-import PopButton from "@/components/popbutton/component"
-import Bg from "@/components/bg/component"
+import { Bg, PopButton } from "@/components"
 
 export const metadata: Metadata = {
   title: "Dev Full-Stack | Gustavo Aragão",
@@ -37,9 +36,9 @@ export default async function LocaleLayout({
         text-zinc-900  dark:text-zinc-200
           transition-all duration-300 text-nowrap select-none overflow-hidden"
       >
+        <NextIntlClientProvider messages={messages}>
         <Bg/>
         <PopButton/>
-        <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
       </body>

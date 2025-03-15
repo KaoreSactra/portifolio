@@ -17,7 +17,7 @@ export default function Home() {
   const [selected, setSelected] = useState(1)
 
   return (
-    <main className="h-dvh w-dvw flex justify-end py-20 px-6 sm:px-8 md:px-20 z-0">
+    <main className="h-dvh w-dvw flex justify-end pt-30 pb-20 px-6 sm:px-8 md:px-20 z-0">
       <header className="fixed top-6 left-6 sm:top-8 sm:left-8 md:top-10 md:left-20 z-100">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-light">
           Gustavo Aragão

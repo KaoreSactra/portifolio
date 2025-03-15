@@ -9,13 +9,23 @@ interface LiProps {
   onClick?: () => void
 }
 
-export default function Li({ dot: Dot, label, className, active, actual, onClick }: LiProps) {
+export default function Li({
+  dot: Dot,
+  label,
+  className,
+  active,
+  actual,
+  onClick,
+}: LiProps) {
   return (
-    <li 
-      className={`hover:text-3xl transition-all duration-300 cursor-pointer flex items-center space-x-3 ${active === actual && 'text-3xl'}`}
+    <li
+      className={`hover:text-3xl
+        transition-all duration-300 cursor-pointer
+        flex items-center space-x-3 pt-2
+        ${active === actual && "text-3xl"}`}
       onClick={onClick}
     >
-      <Dot className={`size-5 ${className}`}/>
+      <Dot className={`size-6 ${className}`} />
       <p>{label}</p>
     </li>
   )

@@ -1,17 +1,18 @@
-import { ReactNode } from "react"
+import { ElementType, ReactNode } from "react"
 
-interface LiProps {
+interface SectionProps {
   className?: string,
-  box: ReactNode
+  box: ElementType
 }
 
-export default function Section({ className, box }: LiProps) {
+export default function Section({ className, box:Box }: SectionProps) {
   return (
-    <section className={`w-full h-full
-        flex flex-col items-end
-        snap-y overflow-scroll
-        text-3xl md:text-6xl ${className}`}>
-        {box}
+    <section className={`w-full h-full text-2xl md:text-4xl z-20
+        flex justify-end items-end mask-gradient overflow-y-scroll scrollbar-none
+        ${className}`}>
+        <div className="h-[70%]">
+          <Box/>
+        </div>
     </section>
   )
 }

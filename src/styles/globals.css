@@ -6,3 +6,17 @@
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+.mask-gradient {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 30%, black 99%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 30%, black 99%, transparent);
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -43,7 +43,7 @@ export default function Bg({ className }: LiProps) {
           outModes: { default: "out" },
         },
         opacity: { value: { min: 0.05, max: 0.25 } },
-        color: { value: isDark ? "#ffffff" : "#000000" },
+        color: { value: isDark ? "#fff" : "#000" },
       },
     }),
     [isDark]

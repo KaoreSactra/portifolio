@@ -11,6 +11,7 @@ import { Bg, PopButton } from "@/components"
 export const metadata: Metadata = {
   title: "Dev Full-Stack | Gustavo Aragão",
   description: "Desenvolvedor Full-Stack em SP",
+  icons: "img/icon.svg"
 }
 
 export default async function LocaleLayout({

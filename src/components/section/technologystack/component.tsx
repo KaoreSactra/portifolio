@@ -1,8 +1,4 @@
-interface TechnologyProps {
-  className?: string
-}
-
-export default function TechnologyStack({ className }: TechnologyProps) {
+export default function TechnologyStack() {
   return (
     <div className="flex flex-col gap-10 text-end text-5xl md:text-6xl font-thin">
       <span className="flex gap-2 justify-end items-end">

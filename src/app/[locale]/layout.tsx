@@ -34,7 +34,7 @@ export default async function LocaleLayout({
       <body
         className="font-display text-xl
           bg-zinc-50 dark:bg-zinc-950
-        text-zinc-900  dark:text-zinc-200
+        text-zinc-900 dark:text-zinc-200
           transition-all duration-300 text-nowrap select-none overflow-hidden"
       >
         <NextIntlClientProvider messages={messages}>

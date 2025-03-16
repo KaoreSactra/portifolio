@@ -1,51 +1,27 @@
+import LabelBox from "@/components/labelbox/component"
+
 export default function TechnologyStack() {
+
+  const data = [
+    { id: 1, year: '2025', text: '.NET' },
+    { id: 2, year: '2025', text: 'C#' },
+    { id: 3, year: '2025', text: 'TypeScript' },
+    { id: 4, year: '2024', text: 'React' },
+    { id: 5, year: '2024', text: 'Tailwind' },
+    { id: 6, year: '2024', text: 'Next.js' },
+    { id: 7, year: '2024', text: 'Electron' },
+    { id: 8, year: '2024', text: 'Selenium' },
+    { id: 9, year: '2024', text: 'JavaScript' },
+    { id: 10, year: '2022', text: 'Git' },
+    { id: 11, year: '2022', text: 'GitHub' },
+    { id: 12, year: '2021', text: 'Python' },
+    { id: 13, year: '2021', text: 'Flask' },
+    { id: 14, year: '2021', text: 'Java' },
+  ]
+
   return (
-    <div className="flex flex-col gap-10 text-end text-5xl md:text-6xl font-thin">
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2025</p>TypeScript
-      </span>
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2025</p>C#
-      </span>
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2025</p>.NET
-      </span>
-
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2024</p>JavaScript
-      </span>
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2024</p>React
-      </span>
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2024</p>Next.js
-      </span>
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2024</p>Electron
-      </span>
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2024</p>Tailwind
-      </span>
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2024</p>Selenium
-      </span>
-
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2022</p>Git
-      </span>
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2022</p>GitHub
-      </span>
-
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2021</p>Python
-      </span>
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2021</p>Java
-      </span>
-      <span className="flex gap-2 justify-end items-end">
-        <p className="text-lg">2021</p>Flask
-      </span>
+    <div className="flex flex-col gap-10 text-5xl md:text-6xl font-light snap-y">
+      {data.map((item) => (<LabelBox key={item.id} subText={item.year} text={item.text} className="snap-center"/>))}
     </div>
   )
 }

@@ -5,5 +5,15 @@
     "Proj": "Projetos",
     "Exp": "Experiências",
     "Cont": "Contato"
+  },
+  "Experiences": {
+    "astra": "JOVEM APRENDIZ",
+    "connect": "DESENVOLVEDOR DE SOFTWARE",
+    "canary": "DESENVOLVEDOR FULLSTACK"
+  },
+  "Projects": {
+    "garagem": "SITE",
+    "charme": "SITE",
+    "bella": "SITE"
   }
 }

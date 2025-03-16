@@ -1,13 +1,6 @@
 "use client"
 
-import {
-  Contact,
-  Experiences,
-  Li,
-  Projects,
-  Section,
-  TechnologyStack,
-} from "@/components"
+import {Contact, Experiences, Li, Projects, Section, TechnologyStack} from "@/components"
 import { useTranslations } from "next-intl"
 import { useState } from "react"
 import { GiClubs, GiDiamonds, GiHearts, GiSpades } from "react-icons/gi"

@@ -12,7 +12,7 @@ export default function Section({ className, box: Box }: SectionProps) {
         flex justify-end items-end mask-gradient overflow-y-scroll scrollbar-none
         ${className}`}
     >
-      <div className="h-[66%]">
+      <div className="h-[65%]">
         <Box />
       </div>
     </section>

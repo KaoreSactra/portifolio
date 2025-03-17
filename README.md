@@ -1,5 +1,7 @@
 # Gustavo Aragão | Portifolio
 
+# <img src="https://hatscripts.github.io/circle-flags/flags/us.svg" width="32"> EN
+
 ## 📝 About the Project
 
 This is my personal portfolio, developed with Next.js, TailwindCSS, and TypeScript, and hosted on Vercel. It showcases my projects, experiences, and contact methods in a modern and responsive way.
@@ -134,6 +136,8 @@ This project is hosted on **[Vercel](https://vercel.com/)** and can be accessed 
 The deployment is done automatically whenever there is a push to the `main` branch. Vercel detects changes and publishes the updated version of the site without manual configuration.
 
 ---
+
+# <img src="https://hatscripts.github.io/circle-flags/flags/br.svg" width="32"> PT-BR
 
 ## 📝 Sobre o projeto
 

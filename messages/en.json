@@ -6,6 +6,10 @@
     "Exp": "Experiences",
     "Cont": "Contact"
   },
+  "Stack": {
+    "primary": "PRIMARY STAKS",
+    "secoundary": "SECOUNDARY STAKS"
+  },
   "Experiences": {
     "astra": "YOUNG APPRENTICE",
     "connect": "SOFTWARE DEVELOPER",

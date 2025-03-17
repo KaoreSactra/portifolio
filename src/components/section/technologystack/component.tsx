@@ -1,27 +1,38 @@
 import LabelBox from "@/components/labelbox/component"
+import { useTranslations } from "next-intl"
 
 export default function TechnologyStack() {
+  const t = useTranslations("Stack")
 
-  const data = [
-    { id: 1, year: '2025', text: '.NET' },
-    { id: 2, year: '2025', text: 'C#' },
-    { id: 3, year: '2025', text: 'TypeScript' },
-    { id: 4, year: '2024', text: 'React' },
-    { id: 5, year: '2024', text: 'Tailwind' },
-    { id: 6, year: '2024', text: 'Next.js' },
-    { id: 7, year: '2024', text: 'Electron' },
-    { id: 8, year: '2024', text: 'Selenium' },
-    { id: 9, year: '2024', text: 'JavaScript' },
-    { id: 10, year: '2022', text: 'Git' },
-    { id: 11, year: '2022', text: 'GitHub' },
-    { id: 12, year: '2021', text: 'Python' },
-    { id: 13, year: '2021', text: 'Flask' },
-    { id: 14, year: '2021', text: 'Java' },
+  const primaryStack = [
+    { id: 1, percentage: '100%', text: '.NET'},
+    { id: 2, percentage: '100%', text: 'React'}
+  ]
+  const secoundaryStack = [
+    { id: 1, percentage: '100%', text: 'C#'},
+    { id: 2, percentage: '100%', text: 'TypeScript'},
+    { id: 3, percentage: '100%', text: 'Tailwind'},
+    { id: 4, percentage: '100%', text: 'Next.js'},
+    { id: 5, percentage: '70%', text: 'Electron'},
+    { id: 6, percentage: '50%', text: 'Selenium'},
+    { id: 7, percentage: '100%', text: 'JavaScript'},
+    { id: 8, percentage: '100%', text: 'Git'},
+    { id: 9, percentage: '100%', text: 'GitHub'},
+    { id: 10, percentage: '60%', text: 'Python'},
+    { id: 11, percentage: '10%', text: 'Flask'},
+    { id: 12, percentage: '30%', text: 'Java'},
   ]
 
   return (
     <div className="flex flex-col gap-10 text-5xl md:text-6xl font-light snap-y">
-      {data.map((item) => (<LabelBox key={item.id} subText={item.year} text={item.text} className="snap-center"/>))}
+      <div className="flex flex-col gap-5">
+        <LabelBox text={t("primary")} className="snap-center font-bold text-end text-2xl md:text-5xl"/>
+        {primaryStack.map((item) => (<LabelBox key={item.id} subText={item.percentage} text={item.text} className="snap-center"/>))}
+      </div>
+      <div className="flex flex-col gap-5">
+        <LabelBox text={t("secoundary")} className="snap-center font-bold text-end text-2xl md:text-5xl"/>
+        {secoundaryStack.map((item) => (<LabelBox key={item.id} subText={item.percentage} text={item.text} className="snap-center"/>))}
+      </div>
     </div>
   )
 }

@@ -1,42 +1,30 @@
 "use client"
 import { useEffect, useState } from "react"
+import { GiSpades } from "react-icons/gi"
 import { HiSun } from "react-icons/hi"
-import { HiMoon } from "react-icons/hi2"
 
 export default function ToggleMode() {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isDark, setIsDark] = useState(true)
 
+  // O tema inicial é aplicado por um script no <head> (sem flash); aqui só sincronizamos.
   useEffect(() => {
-    const theme = localStorage.theme
-    const systemPrefers = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches
-
-    if (theme === "dark" || (!theme && systemPrefers)) {
-      document.documentElement.setAttribute("data-theme", "dark")
-      setIsDarkMode(true)
-    } else {
-      document.documentElement.setAttribute("data-theme", "light")
-      setIsDarkMode(false)
-    }
+    setIsDark(document.documentElement.getAttribute("data-theme") === "dark")
   }, [])
 
-  const toggleMode = () => {
-    if (isDarkMode) {
-      localStorage.theme = "light"
-      document.documentElement.setAttribute("data-theme", "light")
-    } else {
-      localStorage.theme = "dark"
-      document.documentElement.setAttribute("data-theme", "dark")
-    }
-    setIsDarkMode(!isDarkMode)
+  const toggle = () => {
+    const next = isDark ? "light" : "dark"
+    localStorage.theme = next
+    document.documentElement.setAttribute("data-theme", next)
+    setIsDark(!isDark)
   }
 
   return (
     <button
-      onClick={toggleMode}
-      className="p-2 cursor-pointer">
-      {isDarkMode ? <HiMoon className="size-6 drop-shadow-lg"/> : <HiSun className="size-6 drop-shadow-lg"/>}
+      onClick={toggle}
+      aria-label={isDark ? "Light mode" : "Dark mode"}
+      className="cursor-pointer py-2.5 pr-4 pl-3 transition-all duration-300 hover:rotate-12 hover:text-suit-red"
+    >
+      {isDark ? <HiSun className="size-5" /> : <GiSpades className="size-5" />}
     </button>
   )
 }

@@ -1,23 +1,57 @@
 {
   "Home": {
-    "Prof": "Full-Stack Developer",
+    "Prof": "Cyber Security & Full-Stack Developer",
     "Tecno": "Technology Stack",
     "Proj": "Projects",
     "Exp": "Experiences",
-    "Cont": "Contact"
+    "Cont": "Contact",
+    "Location": "São Paulo, Brazil"
   },
   "Stack": {
-    "primary": "PRIMARY STAKS",
-    "secoundary": "SECOUNDARY STAKS"
+    "primary": "Primary stacks",
+    "secoundary": "Secondary stacks",
+    "cat": {
+      "hearts": "Front-end",
+      "spades": "Back-end",
+      "clubs": "Security & tooling",
+      "diamonds": "Desktop & automation"
+    },
+    "rankNote": "Suit = field · Rank = proficiency (A = 100% · K = 80–99% · Q = 70% · J = 60% · 10 = 50%)"
   },
   "Experiences": {
+    "defcon": "Cyber Security Analyst",
     "astra": "YOUNG APPRENTICE",
     "connect": "SOFTWARE DEVELOPER",
     "canary": "FULL-STACK DEVELOPER"
   },
   "Projects": {
-    "garagem": "SITE",
-    "charme": "SITE",
-    "bella": "SITE"
+    "visit": "Visit site",
+    "repo": "View repository",
+    "items": {
+      "speeddial": {
+        "type": "Start page",
+        "desc": "A Firefox start page with visual shortcuts, smart search and 28 themes."
+      },
+      "docfiles": {
+        "type": "Documentation",
+        "desc": "Markdown docs reader with search, themes, offline mode, Mermaid and KaTeX."
+      },
+      "unip": {
+        "type": "Website",
+        "desc": "Website built as a UNIP coursework assignment."
+      },
+      "chatbot": {
+        "type": "Desktop + Web",
+        "desc": "C# chatbot with an API, a web front end and a desktop app."
+      },
+      "verbloom": {
+        "type": "Web app",
+        "desc": "Study tables, a practice quiz, audio and favorites for learning English verbs, in a single fast page."
+      }
+    }
+  },
+  "Meta": {
+    "title": "Gustavo Aragão | Cyber Security & Full-Stack Developer",
+    "description": "Cyber Security Analyst and Full-Stack Developer based in São Paulo — DLP, Python and Next.js."
   }
 }

@@ -4,13 +4,11 @@ import ToggleMode from "./togglemode/component"
 export default function PopButton() {
   return (
     <div
-      className="fixed bottom-5 left-5 flex justify-center w-25 z-100
-                  rounded-full bg-radial-[at_25%_25%]
-                  from-red-500 to-red-900 to-75%
-                  transition-all duration-300 text-zinc-200
-                  drop-shadow-md"
+      className="fixed right-5 bottom-16 z-50 flex items-center overflow-hidden
+        rounded-full bg-paper text-ink shadow-xl ring-1 ring-line sm:right-8"
     >
       <ToggleLang />
+      <span className="h-5 w-px bg-ink/20" />
       <ToggleMode />
     </div>
   )

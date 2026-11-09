@@ -1,273 +1,262 @@
-# Gustavo Aragão | Portifolio
+<div align="center">
 
-# <img src="https://hatscripts.github.io/circle-flags/flags/us.svg" width="32"> EN
+# ♠ Gustavo Aragão ♥
 
-## 📝 About the Project
+### Cyber Security & Full-Stack Developer
 
-This is my personal portfolio, developed with Next.js, TailwindCSS, and TypeScript, and hosted on Vercel. It showcases my projects, experiences, and contact methods in a modern and responsive way.
+Personal portfolio built as a card table: four suits, four sections, one deck.
 
-💡 Use this portfolio as a foundation to create your own and enhance your web development skills! Feel free to explore the code, modify it, and adapt it to your needs.
+[**gustavo-aragao.vercel.app**](https://gustavo-aragao.vercel.app)
 
-It includes:
+![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=for-the-badge&logo=nextdotjs)
+![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 
-> - The technologies I specialize in.
-> - Sections for my projects and experiences.
-> - Contact details and links to social media.
+[English](#-english) · [Português](#-português)
 
-The goal of this portfolio is to serve as a digital business card for recruiters, clients, and potential collaborators.
-
-## 🖥️ Technologies Used
-
-This project was built using the following technologies:
-
-### **🛠️ Main Dependencies:**
-
-- [Next.js 15.2.1](https://nextjs.org/) – React framework for web applications.
-- [tsparticles](https://github.com/tsparticles) – Library for particle effects.
-
-### **🖌️ Styling and Tools:**
-
-- [Tailwind CSS 4](https://tailwindcss.com/) – Utility-first CSS framework.
-- [React Icons](https://react-icons.github.io/react-icons/) – Icon library for React.
-
-### **⚙️ Development and Code Quality:**
-
-- [TypeScript 5](https://www.typescriptlang.org/) – JavaScript superset with static typing.
-- [ESLint 9](https://eslint.org/) – Linting tool for code analysis and standardization.
-- [Prettier 3.5.3](https://prettier.io/) – Code formatting tool.
-
-### **🌍 Internationalization:**
-
-- [Next-Intl 3.26.5](https://next-intl-docs.vercel.app/) – Library for language management.
-
-### **📦 Package Manager:**
-
-- [pnpm](https://pnpm.io/) – Fast and efficient alternative to npm.
-
-## 📥 Installation and Usage
-
-### **Prerequisites**
-
-Before starting, make sure you have installed:
-
-- [Node.js](https://nodejs.org/) (recommended: LTS version)
-- [pnpm](https://pnpm.io/) (package manager)
-
-### **▶️ Running the project in development mode**
-
-To start the local server, run:
-
-```sh
-pnpm dev
-```
-
-The site will be available at: [http://localhost:3000](http://localhost:3000)
-
-### **📦 Building for Production**
-
-To create an optimized production build, run:
-
-```sh
-pnpm build
-pnpm start
-```
-
-## 📂 Code Structure
-
-The project is organized as follows:
-
-```sh
-📦 portfolio/
-├── 📁 .next/             # Next.js build (automatically generated)
-├── 📁 messages/          # Translation files (en.json, pt-br.json)
-├── 📁 node_modules/      # Project dependencies
-├── 📁 public/            # Static files (images, fonts, favicon, etc.)
-│   ├── 📁 fonts/         # Project fonts
-│   ├── 📁 img/           # Images used in the site
-├── 📁 src/               # Main source code
-│   ├── 📁 app/           # Next.js App Router structure
-│   │   ├── 📁 (locale)/  # Localization configuration
-│   │   ├── layout.tsx    # Global site layout
-│   │   ├── page.tsx      # Main page
-│   ├── 📁 components/    # Reusable components
-│   │   ├── 📁 bg/        # Background-related components
-│   │   ├── 📁 labelbox/  # Components for displaying labels
-│   │   ├── 📁 li/        # Reusable lists and items
-│   │   ├── 📁 popbutton/ # Interactive buttons
-│   ├── 📁 section/       # Main portfolio sections
-│   │   ├── 📁 contact/   # Contact section
-│   │   ├── 📁 experiences/ # Professional experience section
-│   │   ├── 📁 projects/  # Projects showcase
-│   │   ├── 📁 technologystack/ # Technologies used
-│   │   ├── component.tsx # Main component for sections
-│   │   ├── index.tsx     # Index file for sections
-│   ├── 📁 i18n/          # Internationalization configuration
-│   ├── 📁 styles/        # Global styles
-├── middleware.ts         # Next.js middleware
-├── .gitignore            # Files ignored by Git
-├── eslint.config.mjs     # ESLint configuration
-├── next-env.d.ts         # Global TypeScript definitions for Next.js
-├── next.config.ts        # Next.js configuration
-├── package.json          # Project dependencies and scripts
-├── pnpm-lock.yaml        # pnpm lock file
-├── postcss.config.mjs    # PostCSS configuration
-├── README.md             # Project documentation
-├── tsconfig.json         # TypeScript configuration
-```
-
-### **📌 Explanation of Key Folders**
-
-- **`/public`** → Contains images, fonts, and other static files.
-- **`/src/app`** → Page and layout structure using **Next.js App Router**.
-- **`/src/components`** → Reusable components categorized for better organization.
-- **`/src/section`** → Specific site sections such as **Projects, Contact, and Technologies**.
-- **`/messages`** → JSON files containing translated text for different languages.
-- **`/i18n`** → Configuration for multiple language support using **Next-Intl**.
-- **`/styles`** → Styling files (if not fully handled by TailwindCSS).
-
-## 🚀 Deployment
-
-This project is hosted on **[Vercel](https://vercel.com/)** and can be accessed at:
-
-🔗 **[Gustavo Aragão | Portfolio](https://gustavo-aragao.vercel.app)**
-
-### **📦 How Deployment Works**
-
-The deployment is done automatically whenever there is a push to the `main` branch. Vercel detects changes and publishes the updated version of the site without manual configuration.
+</div>
 
 ---
 
-# <img src="https://hatscripts.github.io/circle-flags/flags/br.svg" width="32"> PT-BR
+# 🇺🇸 English
 
-## 📝 Sobre o projeto
+## The idea
 
-Este é o meu portfólio pessoal, desenvolvido com Next.js, TailwindCSS e TypeScript, e hospedado na Vercel. Ele apresenta meus projetos, experiências e formas de contato de maneira moderna e responsiva.
+The whole site follows one metaphor: **a hand of playing cards**. Each section is a suit, and the content is dealt as cards.
 
-💡 Use este portfólio como uma base para criar o seu próprio e aprender mais sobre desenvolvimento web! Sinta-se à vontade para explorar o código, modificar e adaptar para suas necessidades.
+| Suit | Section | What the cards are |
+| :-: | --- | --- |
+| ♥ | **Stack** | Technologies. Suit = field, rank = proficiency. |
+| ♣ | **Experience** | Jobs, from the most recent (Ace) to the oldest. |
+| ♦ | **Projects** | Selected work, each one a link. |
+| ♠ | **Contact** | E-mail, WhatsApp, LinkedIn and GitHub. |
 
-Ele inclui:
+In the **Stack** section, the suit of a card is the field (♥ front-end, ♠ back-end, ♣ security and tooling, ♦ desktop and automation) and the rank is the proficiency: `A` = 100%, `K` = 80–99%, `Q` = 70%, `J` = 60%, `10` = 50%.
 
-> - As tecnologias que domino.
-> - Seções para meus projetos e experiências.
-> - Meios de contato e links para redes sociais.
+## Look and feel
 
-O objetivo deste portfólio é servir como um cartão de visitas digital para recrutadores, clientes e colaboradores em potencial.
+- **Black, white and red** only. Dark mode is a black table with white cards; light mode inverts it. The red is the single accent color.
+- **Motion everywhere, restrained:** letters rise out of a mask, cards are dealt in with a stagger, and link cards tilt in 3D following the pointer with a red glare. A red ring follows the cursor, a spotlight follows the mouse, and a marquee of suits runs along the bottom.
+- **Names never break.** The `Fit` component shrinks text to the width of its container (CSS container query units) instead of breaking a word in half.
+- **Accessible motion:** everything respects `prefers-reduced-motion`. The cursor ring is hidden on touch devices.
+- **No flash on load:** the saved theme is applied by an inline script before the first paint.
 
-## 🖥️ Tecnologias Usadas
+## Tech stack
 
-Este projeto foi desenvolvido com as seguintes tecnologias:
+| Area | Tools |
+| --- | --- |
+| Framework | [Next.js 15](https://nextjs.org/) (App Router, Turbopack in dev) · [React 19](https://react.dev/) |
+| Language | [TypeScript 5](https://www.typescriptlang.org/) |
+| Styling | [Tailwind CSS 4](https://tailwindcss.com/) + CSS variables for the theme |
+| i18n | [next-intl 4](https://next-intl.dev/) (`pt-br` default, `en`) |
+| Icons | [React Icons](https://react-icons.github.io/react-icons/) |
+| Fonts | Montserrat (local) · Playfair Display (`next/font`) |
+| Quality | ESLint 9 · Prettier |
+| Package manager | [pnpm](https://pnpm.io/) |
 
-### **🛠️ Dependências Principais:**
+There are no animation or particle libraries: every effect is CSS plus a few small `requestAnimationFrame` and pointer handlers.
 
-- [Next.js 15.2.1](https://nextjs.org/) – Framework React para aplicações web.
-- [tsparticles](https://github.com/tsparticles) – Biblioteca para efeitos de partículas.
+## Getting started
 
-### **🖌️ Ferramentas e Estilização:**
+**Requirements:** [Node.js](https://nodejs.org/) (LTS) and [pnpm](https://pnpm.io/) (`corepack enable` picks the right version).
 
-- [Tailwind CSS 4](https://tailwindcss.com/) – Framework de CSS utilitário.
-- [React Icons](https://react-icons.github.io/react-icons/) – Biblioteca de ícones para React.
-
-### **⚙️ Desenvolvimento e Qualidade de Código:**
-
-- [TypeScript 5](https://www.typescriptlang.org/) – Superset do JavaScript para tipagem estática.
-- [ESLint 9](https://eslint.org/) – Ferramenta para análise e padronização de código.
-- [Prettier 3.5.3](https://prettier.io/) – Formatação automática de código.
-
-### **🌍 Internacionalização:**
-
-- [Next-Intl 3.26.5](https://next-intl-docs.vercel.app/) – Biblioteca para gerenciamento de idiomas.
-
-### **📦 Gerenciador de Pacotes:**
-
-- [pnpm](https://pnpm.io/) – Alternativa rápida e eficiente ao npm.
-
-## 📥 Instalação e Uso
-
-### **Pré-requisitos**
-
-Antes de começar, certifique-se de ter instalado:
-
-- [Node.js](https://nodejs.org/) (recomendado: versão LTS)
-- [pnpm](https://pnpm.io/) (gerenciador de pacotes)
-
-### **▶️ Rodando o projeto em ambiente de desenvolvimento**
-
-Para iniciar o servidor local, execute:
-
-```sh
+```bash
+pnpm install
 pnpm dev
 ```
 
-O site ficará disponível em: [http://localhost:3000](http://localhost:3000)
+Open [http://localhost:3000](http://localhost:3000).
 
-### **📦 Gerando versão de produção**
+| Command | What it does |
+| --- | --- |
+| `pnpm dev` | Dev server with Turbopack |
+| `pnpm build` | Production build |
+| `pnpm start` | Serves the production build |
+| `pnpm lint` | Runs ESLint |
 
-Se quiser criar uma versão otimizada para produção, rode:
+> ⚠️ Don't run `pnpm build` while `pnpm dev` is running: both write to `.next/` and the dev server breaks with `ENOENT` errors. If it happens, stop it, run `rm -rf .next` and start again.
 
+## Languages
+
+Routes are prefixed by locale, with Portuguese as the default and no prefix:
+
+| URL | Language |
+| --- | --- |
+| `/` | Português (default) |
+| `/en` | English |
+
+- The **PT | EN** switch (bottom right) keeps the active section when you change language.
+- The active section is also kept in the URL hash (`#exp`, `#proj`…).
+- Page title, description, `hreflang` and Open Graph are generated per language in `generateMetadata`.
+
+## Editing the content
+
+Almost everything is data, so you rarely need to touch the layout.
+
+| I want to change… | Edit |
+| --- | --- |
+| Texts, role, job titles, project descriptions | `messages/pt-br.json` and `messages/en.json` |
+| Technologies, levels and suits | `src/components/section/technologystack/component.tsx` |
+| Jobs, ranks and links | `src/components/section/experiences/component.tsx` |
+| Projects, names and links | `src/components/section/projects/component.tsx` |
+| Contact links | `src/components/section/contact/component.tsx` |
+| Colors and theme | CSS variables at the top of `src/styles/globals.css` |
+
+**Adding a project:** add an entry to `PROJECTS` (key, rank, name, `kind` = `site` or `repo`, url) and add `Projects.items.<key>.type` and `.desc` to **both** message files.
+
+**Adding a language:** add it to `locales` in `src/i18n/routing.ts`, create `messages/<locale>.json`, and add its label to `ToggleLang`.
+
+## Project structure
+
+```text
+portifolio/
+├── messages/                  # Translations (pt-br.json, en.json)
+├── public/img/icon.svg        # Favicon
+└── src/
+    ├── app/[locale]/
+    │   ├── layout.tsx         # Fonts, theme script, metadata, i18n provider
+    │   └── page.tsx           # Header, navigation and active section
+    ├── components/
+    │   ├── bg/                # Grid, grain, spotlight, giant spade and cursor ring
+    │   ├── card/              # Playing card (3D tilt), suits and the aces fan
+    │   ├── fit/               # Text that shrinks to fit instead of breaking
+    │   ├── split/             # Letter-by-letter reveal, grouped by word
+    │   ├── li/                # Navigation item
+    │   ├── marquee/           # Scrolling ticker
+    │   ├── popbutton/         # Language switch and theme toggle
+    │   └── section/           # Section shell + stack, experience, projects, contact
+    ├── i18n/                  # next-intl routing, request config and navigation
+    ├── middleware.ts          # Locale detection and redirects
+    └── styles/                # globals.css (tokens, cards, motion) and fonts.css
 ```
-pnpm build
-pnpm start
+
+## Deploy
+
+Hosted on [Vercel](https://vercel.com/). Any push to the main branch triggers a new deploy. To run it elsewhere, use `pnpm build && pnpm start`.
+
+## Contact
+
+[E-mail](mailto:gus.aragao26@gmail.com) · [LinkedIn](https://www.linkedin.com/in/gustavo-aragao-dev/) · [GitHub](https://github.com/KaoreSactra/)
+
+---
+
+# 🇧🇷 Português
+
+## A ideia
+
+O site inteiro segue uma metáfora: **uma mão de cartas de baralho**. Cada seção é um naipe e o conteúdo é "distribuído" em cartas.
+
+| Naipe | Seção | O que são as cartas |
+| :-: | --- | --- |
+| ♥ | **Stack** | Tecnologias. Naipe = área, valor = nível de domínio. |
+| ♣ | **Experiências** | Empregos, do mais recente (Ás) ao mais antigo. |
+| ♦ | **Projetos** | Trabalhos selecionados, cada um é um link. |
+| ♠ | **Contato** | E-mail, WhatsApp, LinkedIn e GitHub. |
+
+Na seção **Stack**, o naipe da carta é a área (♥ front-end, ♠ back-end, ♣ segurança e ferramentas, ♦ desktop e automação) e o valor é o nível: `A` = 100%, `K` = 80–99%, `Q` = 70%, `J` = 60%, `10` = 50%.
+
+## Visual e movimento
+
+- **Só preto, branco e vermelho.** O modo escuro é uma mesa preta com cartas brancas; o claro inverte. O vermelho é a única cor de destaque.
+- **Movimento em todo lugar, com contenção:** as letras sobem de uma máscara, as cartas são distribuídas em sequência e as cartas com link inclinam em 3D seguindo o ponteiro, com brilho vermelho. Um anel vermelho segue o cursor, um spotlight segue o mouse e um letreiro de naipes corre no rodapé.
+- **Nomes nunca quebram.** O componente `Fit` encolhe o texto até caber na largura do container (unidades de container query) em vez de quebrar a palavra no meio.
+- **Movimento acessível:** tudo respeita `prefers-reduced-motion`. O anel do cursor some em telas de toque.
+- **Sem flash ao carregar:** o tema salvo é aplicado por um script inline antes da primeira pintura.
+
+## Tecnologias
+
+| Área | Ferramentas |
+| --- | --- |
+| Framework | [Next.js 15](https://nextjs.org/) (App Router, Turbopack no dev) · [React 19](https://react.dev/) |
+| Linguagem | [TypeScript 5](https://www.typescriptlang.org/) |
+| Estilo | [Tailwind CSS 4](https://tailwindcss.com/) + variáveis CSS para o tema |
+| i18n | [next-intl 4](https://next-intl.dev/) (`pt-br` padrão, `en`) |
+| Ícones | [React Icons](https://react-icons.github.io/react-icons/) |
+| Fontes | Montserrat (local) · Playfair Display (`next/font`) |
+| Qualidade | ESLint 9 · Prettier |
+| Gerenciador de pacotes | [pnpm](https://pnpm.io/) |
+
+Não há bibliotecas de animação nem de partículas: todo efeito é CSS mais alguns pequenos handlers de `requestAnimationFrame` e de ponteiro.
+
+## Como rodar
+
+**Requisitos:** [Node.js](https://nodejs.org/) (LTS) e [pnpm](https://pnpm.io/) (`corepack enable` usa a versão certa).
+
+```bash
+pnpm install
+pnpm dev
 ```
 
-## 📂 Estrutura do Código
+Abra [http://localhost:3000](http://localhost:3000).
 
-O projeto está organizado da seguinte forma:
+| Comando | O que faz |
+| --- | --- |
+| `pnpm dev` | Servidor de desenvolvimento com Turbopack |
+| `pnpm build` | Build de produção |
+| `pnpm start` | Serve o build de produção |
+| `pnpm lint` | Roda o ESLint |
 
-```sh
-📦 portfolio/
-├── 📁 .next/             # Build do Next.js (gerado automaticamente)
-├── 📁 messages/          # Arquivos de tradução (en.json, pt-br.json)
-├── 📁 node_modules/      # Dependências do projeto
-├── 📁 public/            # Arquivos estáticos (imagens, fontes, favicon, etc.)
-│   ├── 📁 fonts/         # Fontes usadas no projeto
-│   ├── 📁 img/           # Imagens utilizadas no site
-├── 📁 src/               # Código-fonte principal do projeto
-│   ├── 📁 app/           # Estrutura do App Router do Next.js
-│   │   ├── 📁 (locale)/  # Configuração de localização (internacionalização)
-│   │   ├── layout.tsx    # Layout global do site
-│   │   ├── page.tsx      # Página principal do site
-│   ├── 📁 components/    # Componentes reutilizáveis
-│   │   ├── 📁 bg/        # Componentes relacionados ao background
-│   │   ├── 📁 labelbox/  # Componentes para exibição de rótulos
-│   │   ├── 📁 li/        # Listas e itens reutilizáveis
-│   │   ├── 📁 popbutton/ # Botões interativos
-│   ├── 📁 section/       # Seções principais do portfólio
-│   │   ├── 📁 contact/   # Seção de contato
-│   │   ├── 📁 experiences/ # Seção de experiências profissionais
-│   │   ├── 📁 projects/  # Seção com projetos realizados
-│   │   ├── 📁 technologystack/ # Tecnologias utilizadas
-│   │   ├── component.tsx # Componente principal das seções
-│   │   ├── index.tsx     # Arquivo de indexação das seções
-│   ├── 📁 i18n/          # Configuração de internacionalização
-│   ├── 📁 styles/        # Arquivos de estilos globais
-├── middleware.ts         # Middleware do Next.js
-├── .gitignore            # Arquivos ignorados pelo Git
-├── eslint.config.mjs     # Configuração do ESLint
-├── next-env.d.ts         # Tipagens globais do Next.js
-├── next.config.ts        # Configuração do Next.js
-├── package.json          # Dependências e scripts do projeto
-├── pnpm-lock.yaml        # Arquivo de lock do pnpm
-├── postcss.config.mjs    # Configuração do PostCSS
-├── README.md             # Documentação do projeto
-├── tsconfig.json         # Configuração do TypeScript
+> ⚠️ Não rode `pnpm build` enquanto o `pnpm dev` estiver aberto: os dois escrevem em `.next/` e o servidor de desenvolvimento quebra com erros `ENOENT`. Se acontecer, pare o servidor, rode `rm -rf .next` e suba de novo.
+
+## Idiomas
+
+As rotas têm prefixo de idioma, com português como padrão e sem prefixo:
+
+| URL | Idioma |
+| --- | --- |
+| `/` | Português (padrão) |
+| `/en` | English |
+
+- O seletor **PT | EN** (canto inferior direito) mantém a seção ativa ao trocar de idioma.
+- A seção ativa também fica no hash da URL (`#exp`, `#proj`…).
+- Título, descrição, `hreflang` e Open Graph são gerados por idioma no `generateMetadata`.
+
+## Editando o conteúdo
+
+Quase tudo é dado, então raramente é preciso mexer no layout.
+
+| Quero mudar… | Edite |
+| --- | --- |
+| Textos, cargo, funções, descrição dos projetos | `messages/pt-br.json` e `messages/en.json` |
+| Tecnologias, níveis e naipes | `src/components/section/technologystack/component.tsx` |
+| Empregos, valores das cartas e links | `src/components/section/experiences/component.tsx` |
+| Projetos, nomes e links | `src/components/section/projects/component.tsx` |
+| Links de contato | `src/components/section/contact/component.tsx` |
+| Cores e tema | Variáveis CSS no topo de `src/styles/globals.css` |
+
+**Adicionar um projeto:** inclua uma entrada em `PROJECTS` (key, rank, name, `kind` = `site` ou `repo`, url) e adicione `Projects.items.<key>.type` e `.desc` nos **dois** arquivos de mensagens.
+
+**Adicionar um idioma:** inclua em `locales` no `src/i18n/routing.ts`, crie `messages/<locale>.json` e adicione o rótulo em `ToggleLang`.
+
+## Estrutura do projeto
+
+```text
+portifolio/
+├── messages/                  # Traduções (pt-br.json, en.json)
+├── public/img/icon.svg        # Favicon
+└── src/
+    ├── app/[locale]/
+    │   ├── layout.tsx         # Fontes, script de tema, metadata, provider de i18n
+    │   └── page.tsx           # Cabeçalho, navegação e seção ativa
+    ├── components/
+    │   ├── bg/                # Grade, grão, spotlight, espadas gigante e anel do cursor
+    │   ├── card/              # Carta de baralho (tilt 3D), naipes e leque de ases
+    │   ├── fit/               # Texto que encolhe para caber em vez de quebrar
+    │   ├── split/             # Revelação letra por letra, agrupada por palavra
+    │   ├── li/                # Item de navegação
+    │   ├── marquee/           # Letreiro rolante
+    │   ├── popbutton/         # Seletor de idioma e alternador de tema
+    │   └── section/           # Casca da seção + stack, experiências, projetos, contato
+    ├── i18n/                  # Roteamento, configuração de request e navegação do next-intl
+    ├── middleware.ts          # Detecção de idioma e redirecionamentos
+    └── styles/                # globals.css (tokens, cartas, movimento) e fonts.css
 ```
 
-### **📌 Explicação das principais pastas**
+## Deploy
 
-- **`/public`** → Contém imagens, fontes e outros arquivos estáticos.
-- **`/src/app`** → Estrutura de páginas e layout utilizando **App Router** do Next.js.
-- **`/src/components`** → Componentes reutilizáveis organizados em categorias.
-- **`/src/section`** → Seções específicas do site, como **Projetos, Contato e Tecnologias**.
-- **`/messages`** → Arquivos JSON contendo textos traduzidos para diferentes idiomas.
-- **`/i18n`** → Configuração para suporte a múltiplos idiomas usando **Next-Intl**.
-- **`/styles`** → Arquivos de estilização (se não for tudo via TailwindCSS).
+Hospedado na [Vercel](https://vercel.com/). Qualquer push na branch principal dispara um novo deploy. Para rodar em outro lugar, use `pnpm build && pnpm start`.
 
-## 🚀 Deploy
+## Contato
 
-Este projeto está hospedado na **[Vercel](https://vercel.com/)** e pode ser acessado em:
-
-🔗 **[Gustavo Aragão | Portfólio](https://gustavo-aragao.vercel.app)**
-
-### **📦 Como funciona o deploy**
-
-O deploy é feito automaticamente sempre que há um push para o branch `main`. A Vercel detecta as mudanças e publica a nova versão do site sem necessidade de configuração manual.
+[E-mail](mailto:gus.aragao26@gmail.com) · [LinkedIn](https://www.linkedin.com/in/gustavo-aragao-dev/) · [GitHub](https://github.com/KaoreSactra/)

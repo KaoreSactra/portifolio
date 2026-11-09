@@ -9,33 +9,34 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tsparticles/slim": "^3.8.1",
-    "next": "15.2.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "next": "15.5.29",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
-    "@tsparticles/engine": "^3.8.1",
-    "@tsparticles/react": "^3.0.0",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.2.1",
-    "next-intl": "^3.26.5",
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "react-icons": "^5.5.0",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "@eslint/eslintrc": "^3.3.7",
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^20.19.43",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "15.5.29",
+    "next-intl": "^4.14.9",
+    "prettier": "^3.9.10",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "react-icons": "^5.7.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^5.9.3"
   },
   "packageManager": "pnpm@10.6.2+sha512.47870716bea1572b53df34ad8647b42962bc790ce2bf4562ba0f643237d7302a3d6a8ecef9e4bdfc01d23af1969aa90485d4cebb0b9638fa5ef1daef656f6c1b",
   "pnpm": {
     "onlyBuiltDependencies": [
       "@tsparticles/engine",
       "sharp"
-    ]
+    ],
+    "overrides": {
+      "postcss": ">=8.5.23",
+      "minimatch@<11": "^11.0.1"
+    }
   }
 }

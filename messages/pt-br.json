@@ -1,23 +1,57 @@
 {
   "Home": {
-    "Prof": "Desenvolvedor Full-Stack",
+    "Prof": "Cyber Security & Full-Stack Developer",
     "Tecno": "Stack Tecnológico",
     "Proj": "Projetos",
     "Exp": "Experiências",
-    "Cont": "Contato"
+    "Cont": "Contato",
+    "Location": "São Paulo, Brasil"
   },
   "Stack": {
-    "primary": "STACKS PRIMÁRIAS",
-    "secoundary": "STAKS SECUNDÁRIAS"
+    "primary": "Stacks primárias",
+    "secoundary": "Stacks secundárias",
+    "cat": {
+      "hearts": "Front-end",
+      "spades": "Back-end",
+      "clubs": "Segurança e ferramentas",
+      "diamonds": "Desktop e automação"
+    },
+    "rankNote": "Naipe = área · Valor = nível de domínio (A = 100% · K = 80–99% · Q = 70% · J = 60% · 10 = 50%)"
   },
   "Experiences": {
+    "defcon": "Cyber Security Analyst",
     "astra": "JOVEM APRENDIZ",
     "connect": "DESENVOLVEDOR DE SOFTWARE",
     "canary": "DESENVOLVEDOR FULLSTACK"
   },
   "Projects": {
-    "garagem": "SITE",
-    "charme": "SITE",
-    "bella": "SITE"
+    "visit": "Visitar site",
+    "repo": "Ver repositório",
+    "items": {
+      "speeddial": {
+        "type": "Página inicial",
+        "desc": "Aba inicial do Firefox com atalhos visuais, busca inteligente e 28 temas."
+      },
+      "docfiles": {
+        "type": "Documentação",
+        "desc": "Leitor de docs em Markdown com busca, temas, modo offline, Mermaid e KaTeX."
+      },
+      "unip": {
+        "type": "Site",
+        "desc": "Site desenvolvido como atividade da UNIP."
+      },
+      "chatbot": {
+        "type": "Desktop + Web",
+        "desc": "ChatBot em C# com API, front-end web e aplicação desktop."
+      },
+      "verbloom": {
+        "type": "Web app",
+        "desc": "Tabelas de estudo, quiz de prática, áudio e favoritos para aprender verbos em inglês, em uma única página rápida."
+      }
+    }
+  },
+  "Meta": {
+    "title": "Gustavo Aragão | Cyber Security e Desenvolvedor Full-Stack",
+    "description": "Cyber Security Analyst e Desenvolvedor Full-Stack em São Paulo — DLP, Python e Next.js."
   }
 }

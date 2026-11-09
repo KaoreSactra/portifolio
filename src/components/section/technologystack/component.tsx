@@ -1,59 +1,113 @@
-import LabelBox from "@/components/labelbox/component"
+import Card from "@/components/card/component"
+import Fit from "@/components/fit/component"
+import { SUITS, type Suit } from "@/components/card/suits"
 import { useTranslations } from "next-intl"
+
+// Naipe = área · Valor da carta = nível de domínio
+const RANKS: [number, string][] = [
+  [100, "A"],
+  [80, "K"],
+  [70, "Q"],
+  [60, "J"],
+  [50, "10"],
+  [30, "5"],
+]
+const rankOf = (level: number) => RANKS.find(([min]) => level >= min)![1]
+
+interface Tech {
+  text: string
+  level: number
+  suit: Suit
+}
+
+const primary: Tech[] = [
+  { text: "DLP Symantec", level: 100, suit: "clubs" },
+  { text: "Securiti.AI", level: 100, suit: "clubs" },
+  { text: "Python", level: 100, suit: "spades" },
+  { text: "Next.js", level: 100, suit: "hearts" },
+]
+
+const secondary: Tech[] = [
+  { text: "Node.js", level: 100, suit: "spades" },
+  { text: "TypeScript", level: 100, suit: "hearts" },
+  { text: "React", level: 100, suit: "hearts" },
+  { text: "JavaScript", level: 100, suit: "hearts" },
+  { text: "Tailwind", level: 100, suit: "hearts" },
+  { text: "Git", level: 100, suit: "clubs" },
+  { text: "GitHub", level: 100, suit: "clubs" },
+  { text: "Electron", level: 100, suit: "diamonds" },
+  { text: "Selenium", level: 100, suit: "diamonds" },
+  { text: "Flask", level: 90, suit: "spades" },
+  { text: "SQL", level: 80, suit: "spades" },
+  { text: ".NET", level: 70, suit: "spades" },
+  { text: "C#", level: 70, suit: "spades" },
+  { text: "Java", level: 50, suit: "spades" },
+]
+
+const SUIT_ORDER: Suit[] = ["hearts", "spades", "clubs", "diamonds"]
 
 export default function TechnologyStack() {
   const t = useTranslations("Stack")
 
-  const primaryStack = [
-    { id: 1, percentage: "100%", text: "Node.js" },
-    { id: 2, percentage: "100%", text: "Next.js" },
-    { id: 3, percentage: "100%", text: "TypeScript" },
-  ]
-  const secoundaryStack = [
-    { id: 1, percentage: "100%", text: "React" },
-    { id: 2, percentage: "100%", text: "Tailwind" },
-    { id: 3, percentage: "100%", text: "JavaScript" },
-    { id: 4, percentage: "100%", text: "GitHub" },
-    { id: 5, percentage: "100%", text: "Git" },
-    { id: 9, percentage: "80%", text: "Python" },
-    { id: 10, percentage: "80%", text: "Flask" },
-    { id: 6, percentage: "70%", text: "Electron" },
-    { id: 7, percentage: "60%", text: ".NET" },
-    { id: 8, percentage: "60%", text: "C#" },
-    { id: 11, percentage: "50%", text: "Selenium" },
-    { id: 12, percentage: "30%", text: "Java" },
-  ]
-
   return (
-    <div className="flex flex-col gap-10 text-5xl md:text-6xl font-light snap-y">
-      <div className="flex flex-col gap-5">
-        <LabelBox
-          text={t("primary")}
-          className="snap-center font-bold text-end text-2xl md:text-5xl"
-        />
-        {primaryStack.map((item) => (
-          <LabelBox
-            key={item.id}
-            subText={item.percentage}
-            text={item.text}
-            className="snap-center"
-          />
-        ))}
+    <div className="flex flex-col gap-14">
+      <div>
+        <h3 className="mb-6 text-sm font-semibold tracking-[0.3em] text-accent uppercase">
+          {t("primary")}
+        </h3>
+        <div className="flex flex-wrap gap-6 sm:gap-8">
+          {primary.map((tech, i) => (
+            <Card
+              key={tech.text}
+              rank={rankOf(tech.level)}
+              suit={tech.suit}
+              face
+              index={i}
+              tilt={(i - 1) * 2.5}
+            >
+              <span className="card__tag">{t(`cat.${tech.suit}`)}</span>
+              <Fit text={tech.text} className="card__title" />
+              <span className="card__sub">{tech.level}%</span>
+            </Card>
+          ))}
+        </div>
       </div>
-      <div className="flex flex-col gap-5">
-        <LabelBox
-          text={t("secoundary")}
-          className="snap-center font-bold text-end text-2xl md:text-5xl"
-        />
-        {secoundaryStack.map((item) => (
-          <LabelBox
-            key={item.id}
-            subText={item.percentage}
-            text={item.text}
-            className="snap-center"
-          />
-        ))}
+
+      <div>
+        <h3 className="mb-6 text-sm font-semibold tracking-[0.3em] text-accent uppercase">
+          {t("secoundary")}
+        </h3>
+        <div className="flex flex-wrap gap-4 sm:gap-5">
+          {secondary.map((tech, i) => (
+            <Card
+              key={tech.text}
+              rank={rankOf(tech.level)}
+              suit={tech.suit}
+              size="sm"
+              index={i + 3}
+              tilt={((i % 3) - 1) * 1.2}
+            >
+              <Fit text={tech.text} className="card__title" />
+              <span className="card__sub">{tech.level}%</span>
+            </Card>
+          ))}
+        </div>
       </div>
+
+      <footer className="flex flex-col gap-3 border-t border-line pt-6">
+        <ul className="flex flex-wrap gap-x-6 gap-y-2">
+          {SUIT_ORDER.map((suit) => {
+            const { icon: Icon, red } = SUITS[suit]
+            return (
+              <li key={suit} className="legend-chip">
+                <Icon className={`size-4 ${red ? "text-accent" : "text-fg"}`} />
+                {t(`cat.${suit}`)}
+              </li>
+            )
+          })}
+        </ul>
+        <p className="text-xs text-muted">{t("rankNote")}</p>
+      </footer>
     </div>
   )
 }

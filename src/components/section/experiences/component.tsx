@@ -1,25 +1,38 @@
-import LabelBox from "@/components/labelbox/component"
+import Card from "@/components/card/component"
+import Fit from "@/components/fit/component"
 import { useTranslations } from "next-intl"
+import { FiArrowUpRight } from "react-icons/fi"
 
 export default function Experiences() {
   const t = useTranslations("Experiences")
 
+  // Do mais recente ao mais antigo: Ás, Rei, Dama, Valete
   const data = [
-    { id: 1, emp: "CANARY DEV", text: t("canary"), url: "https://www.linkedin.com/company/canary-dev-brazil/"},
-    { id: 2, emp: "CONNECT STATION", text: t("connect"), url: "https://www.linkedin.com/company/connect-station-softwares/" },
-    { id: 3, emp: "ASTRAZENECA", text: t("astra"), url: "https://www.linkedin.com/company/astrazeneca/" },
+    { rank: "A", emp: "Defcon1", role: t("defcon"), cta: "Site", url: "https://www.defcon1.com.br/" },
+    { rank: "K", emp: "Canary Dev", role: t("canary"), cta: "LinkedIn", url: "https://www.linkedin.com/company/canary-dev-brazil/" },
+    { rank: "Q", emp: "Connect Station", role: t("connect"), cta: "LinkedIn", url: "https://www.linkedin.com/company/connect-station-softwares/" },
+    { rank: "J", emp: "AstraZeneca", role: t("astra"), cta: "LinkedIn", url: "https://www.linkedin.com/company/astrazeneca/" },
   ]
 
   return (
-    <div className="flex flex-col gap-10 text-3xl md:text-6xl font-light snap-y">
-      {data.map((item) => (
-        <LabelBox
-          key={item.id}
-          subText={item.emp}
-          text={item.text}
-          url={item.url}
-          className="snap-center flex-col text-end"
-        />
+    <div className="flex flex-wrap gap-6 sm:gap-8">
+      {data.map((item, i) => (
+        <Card
+          key={item.emp}
+          rank={item.rank}
+          suit="clubs"
+          href={item.url}
+          label={`${item.emp} — ${item.role}`}
+          face
+          index={i}
+          tilt={((i % 3) - 1) * 2.5}
+        >
+          <Fit text={item.role} className="card__sub" />
+          <Fit text={item.emp} className="card__title" />
+          <span className="card__cta">
+            {item.cta} <FiArrowUpRight />
+          </span>
+        </Card>
       ))}
     </div>
   )

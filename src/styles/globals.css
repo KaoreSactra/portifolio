@@ -1,22 +1,545 @@
 @import "tailwindcss";
 @import "./fonts.css";
 
-@theme {
-  --font-display: "Montserrat", "sans-serif";
+@theme inline {
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-paper: var(--card);
+  --color-ink: var(--card-fg);
+  --color-suit-red: #e10600;
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-.mask-gradient {
-  -webkit-mask-image: linear-gradient(to bottom, transparent, black 40%, black 98%, transparent);
-  mask-image: linear-gradient(to bottom, transparent, black 40%, black 98%, transparent);
+/* ── Tokens: preto, branco e vermelho ────────────────────────────────── */
+/* Cartas invertem com o tema: papel claro sobre preto, preto sobre branco. */
+:root {
+  color-scheme: light;
+  --bg: #f4f2ee;
+  --fg: #0b0b0b;
+  --muted: #6d6d68;
+  --line: rgb(0 0 0 / 0.14);
+  --accent: #d70500;
+  --card: #0b0b0b;
+  --card-fg: #f4f2ee;
+  --card-edge: rgb(255 255 255 / 0.12);
+  --grain: 0.07;
 }
 
-.scrollbar-none::-webkit-scrollbar {
-  display: none;
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #070707;
+  --fg: #f4f2ee;
+  --muted: #86867f;
+  --line: rgb(255 255 255 / 0.12);
+  --accent: #ff2a1f;
+  --card: #f4f2ee;
+  --card-fg: #0b0b0b;
+  --card-edge: rgb(0 0 0 / 0.15);
+  --grain: 0.09;
 }
 
-.scrollbar-none {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100dvh;
+  overflow-x: hidden;
+  transition:
+    color 0.4s,
+    background-color 0.4s;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+@layer components {
+  /* ── Palco: grade, grão, spotlight e naipe gigante ────────────────── */
+  .stage {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .stage__grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, var(--line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 96px 96px;
+    opacity: 0.45;
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 20%, transparent 80%);
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, #000 20%, transparent 80%);
+  }
+
+  .stage__spot {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      620px circle at var(--mx, 70%) var(--my, 30%),
+      rgb(225 6 0 / 0.16),
+      transparent 60%
+    );
+  }
+
+  .stage__suit {
+    position: absolute;
+    right: -12vmin;
+    bottom: -18vmin;
+    width: 80vmin;
+    height: 80vmin;
+    color: var(--accent);
+    opacity: 0.05;
+    animation: spin 120s linear infinite;
+  }
+
+  .stage__grain {
+    position: absolute;
+    inset: -50%;
+    opacity: var(--grain);
+    background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain 1.2s steps(6) infinite;
+  }
+
+  /* ── Cursor ────────────────────────────────────────────────────────── */
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 60;
+    width: 2.2rem;
+    height: 2.2rem;
+    margin: -1.1rem 0 0 -1.1rem;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    pointer-events: none;
+    opacity: 0;
+    transition:
+      width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+      height 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+      margin 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+      background-color 0.35s,
+      opacity 0.3s;
+  }
+  .cursor--on {
+    opacity: 1;
+  }
+  .cursor--hot {
+    width: 4.4rem;
+    height: 4.4rem;
+    margin: -2.2rem 0 0 -2.2rem;
+    background-color: rgb(225 6 0 / 0.14);
+  }
+  @media (hover: none), (pointer: coarse) {
+    .cursor {
+      display: none;
+    }
+  }
+
+  /* ── Texto revelado por letra ──────────────────────────────────────── */
+  .split {
+    display: inline-flex;
+    flex-wrap: wrap;
+    column-gap: 0.3em;
+  }
+  .split__word {
+    display: inline-flex;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom: 0.14em;
+    margin-bottom: -0.14em;
+  }
+  .split__word > span {
+    display: inline-block;
+    transform: translateY(115%) rotate(6deg);
+    animation: rise 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: calc(var(--base, 0ms) + var(--d) * 40ms);
+  }
+
+  .fade-up {
+    animation: fade 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+    animation-delay: var(--base, 0ms);
+  }
+
+  .draw {
+    transform-origin: left;
+    animation: draw 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+    animation-delay: var(--base, 0ms);
+  }
+
+  /* ── Texto que se ajusta: encolhe em vez de quebrar a palavra ──────── */
+  .fit {
+    font-size: min(var(--max, 1em), calc(var(--k, 1) * 100cqw / var(--chars, 8)));
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: keep-all;
+    hyphens: none;
+    text-wrap: balance;
+  }
+  .fit-box,
+  .section {
+    container-type: inline-size;
+  }
+
+  /* ── Letreiro ──────────────────────────────────────────────────────── */
+  .marquee {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+    overflow: hidden;
+    border-top: 1px solid var(--line);
+    background: color-mix(in oklab, var(--bg) 78%, transparent);
+    backdrop-filter: blur(10px);
+  }
+  .marquee__track {
+    display: flex;
+    flex: none;
+    width: max-content;
+    animation: marquee 48s linear infinite;
+  }
+  .marquee:hover .marquee__track {
+    animation-play-state: paused;
+  }
+  .marquee__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 2rem;
+    padding-right: 2rem;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--muted);
+  }
+  .marquee__item svg {
+    color: var(--accent);
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
+  /* ── Carta ─────────────────────────────────────────────────────────── */
+  .card {
+    --w: 15rem;
+    --suit: var(--card-fg);
+    position: relative;
+    display: block;
+    flex: none;
+    width: var(--w);
+    aspect-ratio: 5 / 7;
+    font-size: max(0.55rem, calc(var(--w) / 13));
+    color: var(--card-fg);
+    background: var(--card);
+    border-radius: 0.9em;
+    box-shadow:
+      0 0 0 1px var(--card-edge),
+      0 2em 3em -1.6em rgb(0 0 0 / 0.7);
+    transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg))
+      rotate(var(--tilt, 0deg)) translateY(var(--lift, 0em));
+    transition:
+      transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 0.5s;
+    animation: deal 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+    animation-delay: calc(var(--i, 0) * 90ms + 250ms);
+    text-decoration: none;
+    will-change: transform;
+    container-type: inline-size;
+  }
+  .card--red {
+    --suit: var(--suit-red);
+  }
+  .card--lg {
+    --w: clamp(13rem, 70vw, 15.5rem);
+  }
+  .card--sm {
+    --w: clamp(8.4rem, 41vw, 10rem);
+  }
+  .card--xs {
+    --w: 4.6rem;
+  }
+
+  /* moldura interna: fina; vermelha nas cartas de figura */
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0.55em;
+    border: 1px solid color-mix(in oklab, var(--suit) 22%, transparent);
+    border-radius: 0.55em;
+    pointer-events: none;
+    transition: border-color 0.4s;
+  }
+  .card--face::before {
+    border-color: var(--suit-red);
+  }
+
+  /* brilho que segue o ponteiro */
+  .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      circle at var(--mx, 50%) var(--my, 0%),
+      rgb(225 6 0 / 0.16),
+      transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+
+  .card--live:hover,
+  .card--live:focus-visible {
+    --lift: -0.9em;
+    transition:
+      transform 0.15s ease-out,
+      box-shadow 0.5s;
+    box-shadow:
+      0 0 0 1px var(--suit-red),
+      0 0 3em -0.4em rgb(225 6 0 / 0.5),
+      0 3em 3.5em -1.6em rgb(0 0 0 / 0.8);
+    outline: none;
+    z-index: 5;
+  }
+  .card--live:hover::after,
+  .card--live:focus-visible::after {
+    opacity: 1;
+  }
+
+  .card--link {
+    cursor: pointer;
+  }
+
+  .card__corner {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2em;
+    line-height: 1;
+    color: var(--suit);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.45em;
+  }
+  .card__corner svg {
+    width: 0.85em;
+    height: 0.85em;
+  }
+  .card__corner--tl {
+    top: 0.95em;
+    left: 0.95em;
+  }
+  .card__corner--br {
+    right: 0.95em;
+    bottom: 0.95em;
+    transform: rotate(180deg);
+  }
+
+  .card__mark {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 62%;
+    height: 62%;
+    transform: translate(-50%, -50%) scale(1);
+    color: var(--suit);
+    opacity: 0.06;
+    pointer-events: none;
+    transition:
+      transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+      opacity 0.5s;
+  }
+  .card--live:hover .card__mark {
+    transform: translate(-50%, -50%) scale(1.18) rotate(8deg);
+    opacity: 0.13;
+  }
+
+  .card__body {
+    position: absolute;
+    inset: 3.2em 2.3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55em;
+    text-align: center;
+    transform: translateZ(2em);
+  }
+
+  .card__title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    --max: 1.9em;
+    --k: 1;
+    line-height: 1.1;
+  }
+  .card--sm .card__title {
+    --max: 1.5em;
+  }
+  .card__sub.fit {
+    --max: 0.74em;
+    --k: 0.62;
+  }
+  .card__handle {
+    --max: 0.8em;
+    --k: 1;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: color-mix(in oklab, var(--card-fg) 58%, transparent);
+  }
+  .card__sub {
+    font-size: 0.74em;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: color-mix(in oklab, var(--card-fg) 58%, transparent);
+  }
+  .card__desc {
+    font-size: 0.78em;
+    line-height: 1.45;
+    text-wrap: balance;
+    color: color-mix(in oklab, var(--card-fg) 72%, transparent);
+  }
+  .card__tag {
+    font-size: 0.66em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--suit-red);
+  }
+  .card__icon {
+    width: 2.4em;
+    height: 2.4em;
+    color: var(--suit);
+  }
+  .card__cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    margin-top: 0.5em;
+    padding-bottom: 0.2em;
+    font-size: 0.7em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--suit-red);
+  }
+  .card__cta::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0.25);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .card--link:hover .card__cta::after {
+    transform: scaleX(1);
+  }
+  .card__cta svg {
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .card--link:hover .card__cta svg {
+    transform: translate(0.2em, -0.2em);
+  }
+
+  /* ── Seção ─────────────────────────────────────────────────────────── */
+  .legend-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+}
+
+@keyframes deal {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translate(-4em, -3em) rotate(-20deg) scale(0.85);
+  }
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}
+
+@keyframes draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -3%); }
+  60% { transform: translate(-2%, -1%); }
+  80% { transform: translate(3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .fade-up,
+  .draw,
+  .stage__suit,
+  .stage__grain,
+  .marquee__track {
+    animation: none;
+  }
+  .split__word > span {
+    animation: none;
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

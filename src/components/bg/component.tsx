@@ -1,57 +1,64 @@
 "use client"
 
-import { type ISourceOptions } from "@tsparticles/engine"
-import Particles, { initParticlesEngine } from "@tsparticles/react"
-import { loadSlim } from "@tsparticles/slim"
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useRef } from "react"
+import { GiSpades } from "react-icons/gi"
 
-interface LiProps {
-  className?: string
-}
-
-export default function Bg({ className }: LiProps) {
-  const [init, setInit] = useState(false)
-  const [isDark, setIsDark] = useState(false)
+/** Palco: grade, grão, naipe gigante, spotlight vermelho e cursor que seguem o ponteiro. */
+export default function Bg() {
+  const cursor = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine)
-    }).then(() => setInit(true))
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
 
-    const updateTheme = () => {
-      setIsDark(document.documentElement.getAttribute("data-theme") === "dark")
+    const root = document.documentElement
+    let tx = window.innerWidth * 0.7
+    let ty = window.innerHeight * 0.3
+    let x = tx
+    let y = ty
+    let raf = 0
+
+    const loop = () => {
+      // interpolação suave: o anel "persegue" o ponteiro
+      x += (tx - x) * 0.16
+      y += (ty - y) * 0.16
+      root.style.setProperty("--mx", `${x}px`)
+      root.style.setProperty("--my", `${y}px`)
+      if (cursor.current) cursor.current.style.transform = `translate(${x}px, ${y}px)`
+      raf = requestAnimationFrame(loop)
     }
+    raf = requestAnimationFrame(loop)
 
-    updateTheme()
+    const move = (e: PointerEvent) => {
+      tx = e.clientX
+      ty = e.clientY
+      cursor.current?.classList.add("cursor--on")
+    }
+    const over = (e: PointerEvent) => {
+      const hot = (e.target as Element | null)?.closest("a, button")
+      cursor.current?.classList.toggle("cursor--hot", !!hot)
+    }
+    const leave = () => cursor.current?.classList.remove("cursor--on")
 
-    const observer = new MutationObserver(updateTheme)
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] })
-
-    return () => observer.disconnect()
+    window.addEventListener("pointermove", move)
+    window.addEventListener("pointerover", over)
+    document.addEventListener("pointerleave", leave)
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener("pointermove", move)
+      window.removeEventListener("pointerover", over)
+      document.removeEventListener("pointerleave", leave)
+    }
   }, [])
 
-  const options: ISourceOptions = useMemo(
-    () => ({
-      background: { color: "transparent" },
-      particles: {
-        number: { value: 600 },
-        size: { value: { min: 1, max: 3 } },
-        move: {
-          enable: true,
-          speed: 0.2,
-          direction: "none",
-          outModes: { default: "out" },
-        },
-        opacity: { value: { min: 0.05, max: 0.25 } },
-        color: { value: isDark ? "#fff" : "#000" },
-      },
-    }),
-    [isDark]
-  )
-
   return (
-    <div className={`w-dvw h-dvh fixed top-0 left-0 -z-100 ${className}`}>
-      {init && <Particles id="tsparticles" options={options} className="w-full h-full" />}
-    </div>
+    <>
+      <div className="stage" aria-hidden>
+        <div className="stage__grid" />
+        <div className="stage__spot" />
+        <GiSpades className="stage__suit" />
+        <div className="stage__grain" />
+      </div>
+      <div ref={cursor} className="cursor" aria-hidden />
+    </>
   )
 }
